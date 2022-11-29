@@ -1,0 +1,33 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Atualizando cache apt
+      ansible.builtin.apt:
+        update_cache: yes
+
+- hosts: k8s_haproxy
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: "Configurando o HAPROXY"
+      ansible.builtin.include_tasks: haproxy.yml
+
+- hosts: k8s_masters
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: "Configurando os masters"
+      ansible.builtin.include_tasks: masters.yml
+
+- hosts: k8s_workers
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: "Configurando os workers"
+      ansible.builtin.include_tasks: workers.yml

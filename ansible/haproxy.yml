@@ -1,0 +1,13 @@
+---
+- name: Instalando haproxy
+  ansible.builtin.apt:
+    name: haproxy
+    state: latest
+
+- name: Configuração do haproxy.cfg
+  ansible.builtin.template:
+    src: /template/haproxy.j2
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+    mode: '0644'

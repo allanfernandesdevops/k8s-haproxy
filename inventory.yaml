@@ -1,0 +1,22 @@
+all:
+  k8s_masters:
+    hosts:
+      52.201.214.70
+      54.242.118.242
+      54.172.98.150
+    vars:
+    ansible_ssh_user: ubuntu
+
+  k8s_workers:
+    hosts:
+      107.22.150.165
+      54.87.128.86
+      34.234.73.105
+    vars:
+    ansible_ssh_user: ubuntu
+
+  k8s_haproxy:
+    hosts:
+      54.226.176.50
+    vars:
+    ansible_ssh_user: ubuntu

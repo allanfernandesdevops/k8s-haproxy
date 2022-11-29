@@ -1,0 +1,18 @@
+all:
+  k8s_masters:
+    hosts:
+      #${ip}
+    vars:
+    ansible_ssh_user: ubuntu
+
+  k8s_workers:
+    hosts:
+      #${ip}
+    vars:
+    ansible_ssh_user: ubuntu
+
+  k8s_haproxy:
+    hosts:
+      #${ip}
+    vars:
+    ansible_ssh_user: ubuntu
